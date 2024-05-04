@@ -1,0 +1,76 @@
+
+.black-border {
+  border: 1px solid black;
+}
+
+main {
+  width: 90%;
+  margin: 3rem auto 0px;
+}
+
+.toolbar {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-employee {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-employees {
+  width: 30%;
+  height: 70%;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px rgba(34, 34, 34, 0.5);
+}
+
+.search-employees input {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+}
+
+app-employeelist {
+  display: block;
+  width: 75%;
+  margin: 0px auto;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.5);
+}
+
+.form-heading {
+  border-top: 1px solid rgb(153, 18, 18);
+}
+
+.form-heading h6 {
+  text-align: center;
+  background-color: white;
+  width: 200px;
+  transform: translateY(-50%);
+}
+
+.ng-invalid{
+  border-color: rgb(250, 0, 0);
+}
+.ng-valid{
+  border-color: rgb(0, 250, 0);
+}
+
+small{
+  color: rgb(250, 0, 0);
+  font-weight: 400px;
+
+}
+
+.modal-header{
+  background-color: rgb(80, 120, 241);
+}
+.modal-title{
+  color: whitesmoke;
+}

@@ -1,0 +1,42 @@
+
+  <!-- CSS only -->
+<body>
+  <div class="container">
+    <h4 class="title text-center mt-5">Register</h4>
+    <form [formGroup]="registerObj" (ngSubmit)="onRegister()" class="mt-5">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" formControlName="name" id="name" class="form-control" >
+        <div *ngIf="registerObj.controls['name'].invalid && (registerObj.controls['name'].dirty || registerObj.controls['name'].touched)" class="text-danger">
+          <div *ngIf="(registerObj.controls['name'].errors)?.['required']">Name is required</div>
+          <div *ngIf="(registerObj.controls['name'].errors)?.['pattern']">Name is Invalid (symbols not allowed)</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="emailId" class="form-label">Email</label>
+        <input type="email" formControlName="emailId" id="emailId" class="form-control">
+        <div *ngIf="registerObj.controls['emailId'].invalid && (registerObj.controls['emailId'].dirty || registerObj.controls['emailId'].touched)" class="text-danger">
+          <div *ngIf="(registerObj.controls['emailId'].errors)?.['required']">Email is required</div>
+          <div *ngIf="(registerObj.controls['emailId'].errors)?.['email']">Email should be valid</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="mobileNo" class="form-label">Mobile Number</label>
+        <input type="text" formControlName="mobileNo" id="mobileNo" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" formControlName="password" id="password" class="form-control" >
+        <div *ngIf="registerObj.controls['password'].invalid && (registerObj.controls['password'].dirty || registerObj.controls['password'].touched)" class="text-danger">
+          <div *ngIf="(registerObj.controls['password'].errors)?.['required']">Password is required</div>
+          <div *ngIf="(registerObj.controls['password'].errors)?.['pattern']">include Uppercase, Number, Symbol and length:6char</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" data-dismiss="modal" [disabled]="registerObj.invalid">Register</button>
+      <p class="mt-3">Already a user? <button class="btn btn-light text-primary" (click)="navigateToLogin()">Login</button></p>
+    </form>
+  </div>
+  <!-- JS, Popper.js, and jQuery -->
+ 
+</body>
+

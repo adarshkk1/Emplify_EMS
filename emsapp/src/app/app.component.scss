@@ -1,0 +1,90 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orange;
+    padding: 10px 20px;
+  }
+  p{
+    color: #75d3f6;
+  }
+ 
+  
+   .logo a {
+    color: #fff;
+  }
+  
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  .logo img {
+    height: 40px;
+    width: 80px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links  {
+    margin-right: 20px;
+  }
+  
+  .nav-links {
+    color: #6c33f0;
+    text-decoration: none;
+
+  }
+
+  li{
+    margin-right: 20px;
+  }
+
+/* Reset default margin and padding for the entire page */
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333; /* Set your desired background color */
+  color: #fff; /* Text color for links and info */
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+  position: relative;
+}
+
+/* Style the footer links */
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px; /* Add spacing between links */
+}
+
+/* Hover effect for links */
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Style the copyright info */
+.footer-info {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+li-a{
+ font-weight: 800;
+}
