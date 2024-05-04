@@ -1,0 +1,60 @@
+.leave-summary{
+    margin-top: 30px;
+    border: 1px solid black;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px / 12px; 
+    padding: 5% 5% 5% 5%;
+    margin-left: 60px;
+    margin-bottom: 50px;
+  }
+
+  h2{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0 10px;
+  }
+  
+  th {
+    background-color: #f69595;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .status{
+    font-weight: 600;
+    color: #1768f4;
+  }
+
+  .status-rejected{
+    font-weight: 600;
+    color: #f69595;
+  }
+
+  .text-green {
+    color: green;
+  }
+  
+  .text-red {
+    color: red;
+  }

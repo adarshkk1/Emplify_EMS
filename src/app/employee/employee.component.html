@@ -1,0 +1,164 @@
+<div class="container-fluid g-0">
+
+    <main >
+        <div class="toolbar">
+            <div class="add-employee">
+              <button type="button" class="btn btn-outline-success btn-lg " #buttontemp (click)="openModal()" >
+                <i class="bi bi-person-plus-fill"></i>  Add Employee</button>
+          </div>
+              <div class="search-employees">
+                <input type="search" id="search" class="form-control" placeholder="Search Employees "
+                  (input)="searchEmployees(searchInput.value)" #searchInput>                 
+              </div>
+        </div>
+        
+<!-- Show the Employee Details -->
+        <div class="employees ">
+            <div class="row mt-5">
+              <div class="col text-center" *ngIf="!employeesToDisplay || employeesToDisplay.length === 0">
+                <span class="text-secondary fs-2 fw-bold fst-italic" data-bs-toggle="modal">There are No Employees</span>
+              </div>
+              <div class="row mt-4" *ngFor="let employee of employeesToDisplay; let ei = index;">
+                <div class="col">
+                  <app-employeelist [employee]="employee" (onRemoveEmployee)="removeEmployee($event)" (onEditEmployee)="editEmployee($event)"></app-employeelist>
+                </div>
+              </div>
+              </div>
+        </div>
+
+    </main>
+</div>
+<!-- Code for modal for employee details -->
+<div class="modal" id="empinfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Employee Information</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+         <form [formGroup]="employeeForm">
+
+      
+          <div class="row">
+            <div class="col">
+              <label for="firstname" class="col-form-label">First Name:</label>
+              <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="FirstName">
+              <small *ngIf="FirstName.errors?.required && FirstName.touched">
+                First Name is required.
+              </small>
+             <small *ngIf="FirstName.errors?.['pattern']">*Name is Invalid (symbols not allowed)</small>
+            </div>
+            <div class="col">
+              <label for="lastname" class="col-form-label">Last Name:</label>
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname">
+             <small *ngIf="LastName.errors?.['pattern']">*Name is Invalid (symbols not allowed)</small>
+            </div>
+          </div>
+
+  
+          <div class="row mt-5">
+            <div class="col form-heading">
+              <h6 class="text-secondary fst-italic">Personal Information</h6>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row">
+            <div class="col">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="example@cognizant.com" formControlName="email">
+                  <small *ngIf="email.errors?.required && email.touched">* email is required.
+                 </small>
+                  <small *ngIf="email.errors?.email && email.touched">* valid emailid is required.
+                 </small>
+            </div>
+          </div>
+            <div class="col">
+              <label for="datepicker" class="form-label">Birthdate</label>
+              <input type="date" class="form-control" id="datepicker" formControlName="birthdate">
+            </div>
+            <div class="col">
+              <div class="row">
+                <h6 class="text-secondary">Gender</h6>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="m"
+                      formControlName="gender">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="f"
+                      formControlName="gender">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="education">Education</label>
+              <select id="education" class="form-select" formControlName="education">
+                <option value="default" selected>Select your Education</option>
+                <option *ngFor="let option of educationOptions; let i = index;" value="{{option}}">
+                  {{option | titlecase}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="profile" class="form-label">Profile Image Url</label>
+              <input type="text" class="form-control" id="profile" formControlName="profile">
+            </div>
+          </div> 
+          <div class="row mt-5">
+            <div class="col form-heading">
+              <h6 class="text-secondary fst-italic">Job Information</h6>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="company">Company</label>
+              <input type="text" class="form-control" id="company" placeholder="Company Name" formControlName="company">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="department">Department</label>
+              <input type="text" class="form-control" id='department' placeholder="Department" formControlName="department">
+              <small *ngIf="department.errors?.required && FirstName.touched">
+                * Department is required.
+              </small>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <label for="jobExperience">JobExperience</label>
+              <input type="number" class="form-control" id="jobExperience" placeholder="Job Experience (yrs)"
+                formControlName="jobExperience">
+            </div>
+            <div class="col">
+              <label for="salary">Salary</label>
+              <input type="number" class="form-control" id="salary" placeholder="Salary (LPA)" formControlName="salary">
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="edit-btn" (click)="updateEmployee()" style="display:none" data-bs-dismiss="modal" [disabled]="employeeForm.invalid">EDIT</button>
+        <button type="button" class="btn btn-primary" id="add-btn" (click)="addEmployee()" data-bs-dismiss="modal" [disabled]="employeeForm.invalid">Insert</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

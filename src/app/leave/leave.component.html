@@ -1,0 +1,154 @@
+<!-- leave-form- model -->
+<div class="modal" id="leaveForm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class = "modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Leave Details</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="leaveForm" (ngSubmit)="submitLeave()">
+
+          <div class="form-group">
+            <label for="leaveDateRange">From:</label>
+            <input type="date" class="form-control" id="leaveDateRange" formControlName="startdate" required>
+          </div>
+          <div class="form-group">
+            <label for="leaveDateRange">To:</label>
+            <input type="date" class="form-control" id="leaveDateRange" formControlName="enddate" required>
+          </div>
+          <div class="form-group">
+            <label for="leaveType">Reason:</label>
+            <input type="text" class="form-control" id="reason" formControlName="reason" required rows="5">
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" (click)="addLeave()" (click)="closeModal()"
+              data-bs-dismiss="modal" [disabled]="leaveForm.invalid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Employee profile -->
+<div class="container d-flex-left g-0 p-2 ">
+
+  <div class="row g-0 leave-card">
+
+    <div class="col-md-2 d-flex justify-content-center align-items-center">
+      <img [src]="employee.profile" alt="Profile Image" class="profile">
+    </div>
+
+    <div class="col ps-2">
+
+      <div class="row g-0">
+
+        <div class="col-md-10 text-center">
+          <span class="name">{{employee.firstname | titlecase}} {{employee.lastname | titlecase}}</span>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+          <div class="btn-group" role="group">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row g-0 mt-3 leave-profile" >
+
+        <div class="col-md">
+
+          <table class="table table-hover mx-auto">
+            <thead class="text-center fs-5 fst-italic text-secondary">
+              <tr>
+                <td colspan="2"><i class="bi bi-person-fill"></i> Personal Details</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Email</td>
+                <td>{{employee.email}}</td>
+              </tr>
+              <tr>
+                <td>Birthdate</td>
+                <td>{{employee.birthdate}}</td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>{{employee.gender == 'm' ? "Male" : "Female"}}</td>
+              </tr>
+              <tr>
+                <td>Education</td>
+                <td>{{employee.education | titlecase}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <div class="col">
+
+          <table class="table table-hover mx-auto">
+            <thead class="text-center fs-5 fst-italic text-secondary">
+              <tr>
+                <td colspan="2"><i class="bi bi-laptop"></i> Job Details</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Company</td>
+                <td>{{employee.company | titlecase}}</td>
+              </tr>
+              <tr>
+                <td>Department</td>
+                <td>{{employee.department | titlecase}}</td>
+              </tr>
+              <tr>
+                <td>Experience</td>
+                <td>{{employee.jobExperience}} yrs</td>
+              </tr>
+              <tr>
+                <td>Salary</td>
+                <td>{{employee.salary}} LPA</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-2 p-2 leave-apply">
+      <img src='../../assets/Images/apply-leave.png' alt="Profile Image" class="leave-image" (click)="openModal()"
+        title="apply-leave">
+      <p (click)="openModal()">Apply Leave</p>
+    </div>
+  </div>
+</div>
+<div class="leave-summary table-responsive-md">
+  <table>
+    <thead class="leave-table" style="border-spacing: 1rem 0;">
+      <tr>
+        <th>Employee Name</th>
+        <th>Email</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Reason</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let leave of leaveDetails;let i=index">
+      <td>{{leave.name}}</td>
+      <td>{{leave.emailId}}</td>
+      <td>{{leave.startdate}}</td>
+      <td>{{leave.enddate}}</td>
+      <td>{{leave.reason}}</td>
+      <td [ngClass]="{'text-green': leave.status === 'Approved', 'text-red': leave.status === 'Rejected'}">
+        {{leave.status}}
+      </td>
+    </tr>
+
+  </table>
+</div>

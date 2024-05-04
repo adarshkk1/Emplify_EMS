@@ -1,0 +1,31 @@
+<div class="heading text-center">
+  <h2>Approvals</h2>             
+</div>  
+
+<div class="leave-summary table-responsive-md">
+    <table>
+      <thead class="leave-table" style="border-spacing: 1rem 0;">
+        <tr>
+          <th>Employee Name</th>
+          <th>Email</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Reason</th>
+          <th>Status </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let leave of leaveDetails;let i=index">
+      <td>{{leave.name}}</td>
+      <td>{{leave.emailId}}</td>
+      <td>{{leave.startdate}}</td>
+      <td>{{leave.enddate}}</td>
+      <td>{{leave.reason}}</td>
+      <td [ngClass]="{'text-green': leave.status === 'Approved', 'text-red': leave.status === 'Rejected'}">{{leave.status}}</td>
+      <td ><a class="btn btn-success" (click)="approval(leave)">Approve</a>&nbsp;
+      <a class="btn btn-danger" (click)="notApproval(leave)">Reject</a>
+      </td>
+
+</tr> 
+   </table>
+  </div> 

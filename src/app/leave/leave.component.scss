@@ -1,0 +1,193 @@
+.black-border {
+    border: 1px solid black;
+  }
+   
+  .profile {
+    width: 110px;
+    height: 120px;
+    border-radius: 1rem;
+  }
+
+.leave-apply{
+  width:200px;
+  height: 200px;
+  margin-left: 100px;
+  margin-top: 50px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px / 12px; 
+  padding: 3% 3% 3% 3%;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: 0 10px;
+}
+
+th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Leave Form Modal */
+#leaveForm.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#leaveForm.modal-header {
+  background-color: #007bff;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#leaveForm.modal-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+#leaveForm.form-control {
+  border-radius: 5px;
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+#leaveForm.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+/* Employee Profile */
+.leave-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: rgb(146, 169, 209);
+  border-radius: 20px / 12px; 
+  width: 900px;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.leave-card table {
+  width: 100%;
+}
+
+.leave-card th,
+.leave-card td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #b1edd3;
+}
+
+.leave-card th {
+  background-color: #eaefec;
+}
+
+.leave-card tr:nth-child(even) {
+  background-color: #ebe5e5;
+}
+
+.leave-summary {
+  background-color: #d5d5da;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  margin-top: 60px;
+  width: 85%;
+}
+
+.leave-summary table {
+  width: 100%;
+}
+
+.leave-summary th,
+.leave-summary td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ebe6e6;
+}
+
+.leave-summary th {
+  background-color: #56c7f4;
+}
+
+.leave-summary tr:nth-child(even) {
+  background-color: #edf890;
+}
+
+
+.leave-image {
+  height: 120px;
+  background-repeat: no-repeat;
+}
+
+.name{
+  font-size: 30px;
+  text-align: center;
+}
+.leave-apply{
+  width:16%;
+  height:170px;
+  margin-left: 60px;
+  margin-right: 50px;
+  background-color: #eaacac;
+}
+.leave-apply p{
+  text-align: center;
+}
+
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 5px;
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}
+// 
